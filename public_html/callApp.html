@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="keywords" content="JavaScript, WebRTC" />
+<meta name="description" content="WebRTC codelab" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+<title>WebRTC Calling</title>
+
+
+  <link rel="stylesheet" href="css/normalize.css">   
+  <link rel="stylesheet" href="css/main.css">
+  
+  <script src='js/lib/adapter.js'></script>
+  <script src='js/call.js'></script>
+
+</head>
+
+<body>
+
+ <div id="wrapper" class="wrapper">
+        <span class="spandemo" >Telekom WebRTC Demo</span>
+        <br>
+        <div id="divGrid" class="content grid" style="padding:10px;">
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay muted></video>
+            <div id="divCol1" class="col">
+            <h2>Target Caller</h2>            
+            <button id="startCallButton">Start_Call</button>
+            <button id="callButton">Call</button>
+            <button id="hangupButton">Hang Up</button>
+            </div>            
+                   
+        </div>
+   </div>    
+<script>
+var localStream, localPeerConnection, remotePeerConnection;
+
+var localVideo = document.getElementById("localVideo");
+var remoteVideo = document.getElementById("remoteVideo");
+
+var startCallButton = document.getElementById("startCallButton");
+var callButton = document.getElementById("callButton");
+var hangupButton = document.getElementById("hangupButton");
+startCallButton.disabled = false;
+callButton.disabled = true;
+hangupButton.disabled = true;
+
+startCallButton.onclick = start;
+callButton.onclick = call;
+hangupButton.onclick = hangup;
+
+</script>
+
+</body>
+
+</html>

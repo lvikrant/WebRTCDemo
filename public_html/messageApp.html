@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="keywords" content="JavaScript, WebRTC" />
+<meta name="description" content="WebRTC codelab" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+<title>WebRTC Message</title>
+
+
+  <link rel="stylesheet" href="css/normalize.css">   
+  <link rel="stylesheet" href="css/main.css">
+  
+  <script src='js/lib/adapter.js'></script>
+  <script src='js/message.js'></script>
+
+</head>
+
+<body>
+
+   <div id="wrapper" class="wrapper">
+        <span class="spandemo" >Telekom WebRTC Demo</span>
+        <br>
+        <div id="divGrid" class="content grid" style="padding:10px;">           
+            
+            <div id="divCol2" class="col">
+             <h2>Chat messages</h2>                
+             Press Start, enter some text, then press Send.<br>
+            <textarea style="width:250px; height:100px" id="dataChannelSend" disabled placeholder=""></textarea><br>
+                                        
+            <div id="buttons">
+            <button id="startChatButton">Start_Chat</button>
+            <button id="sendButton">Send</button>
+            <button id="closeButton">Stop</button>
+            </div>
+                <textarea style="width:250px; height:100px" id="dataChannelReceive" disabled>                  
+                </textarea>
+            </div>
+            
+                   
+        </div>
+   </div>    
+<script>
+var sendChannel, receiveChannel;
+
+var startChatButton = document.getElementById("startChatButton");
+var sendButton = document.getElementById("sendButton");
+var closeButton = document.getElementById("closeButton");
+startChatButton.disabled = false;
+sendButton.disabled = true;
+closeButton.disabled = true;
+
+startChatButton.onclick = createConnection;
+sendButton.onclick = sendData;
+closeButton.onclick = closeDataChannels;
+
+</script>
+
+</body>
+
+</html>
